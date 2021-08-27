@@ -15,7 +15,7 @@ public class Book {
     @GenericGenerator(name="native",strategy = "native")
     private int id;
     private String bookName;
-//    @JoinColumn(name = "authorId",nullable = false)
+
     @ManyToOne
     private Author author;
 
