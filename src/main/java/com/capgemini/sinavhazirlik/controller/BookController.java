@@ -46,8 +46,8 @@ public class BookController {
     }
 
 
-    @DeleteMapping
-    public boolean deleteBook(@RequestBody Integer id){
+    @DeleteMapping("/{id}")
+    public boolean deleteBook(@PathVariable(value = "id")Integer id){
 
         Optional<Book>bookOptional=this.bookService.findById(id);
         if(bookOptional.isEmpty())
@@ -57,7 +57,7 @@ public class BookController {
         return true;
     }
 
-    @GetMapping(value = "{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<Book> getById(@PathVariable(value = "id")Integer id){
 
         Optional<Book>bookOptional=this.bookService.findById(id);

@@ -45,8 +45,8 @@ public class AuthorController {
         return new ResponseEntity<Author>(updatedAuthor,HttpStatus.OK);
     }
 
-    @DeleteMapping
-    public boolean deleteAuthor(@RequestBody Integer id){
+    @DeleteMapping("/{id}")
+    public boolean deleteAuthor(@PathVariable(name = "id")Integer id){
         Optional<Author> optionalAuthor=authorService.getById(id);
         if(optionalAuthor.isEmpty())
             throw new NotFoundException();
