@@ -31,9 +31,14 @@ public class SinavhazirlikApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		Author author=new Author(0,"Orhanpamuk");
+		Author author=new Author(1,"Orhanpamuk");
 		authorRepository.save(author);
-		bookRepository.save(new Book(0,"Kirmizi",author));
+
+		Author author2=new Author(2,"OrhanDag");
+		authorRepository.save(author2);
+
+		bookRepository.save(new Book(1,"Kirmizi",author));
+		bookRepository.save(new Book(2,"yesil",author2));
 
 	}
 
